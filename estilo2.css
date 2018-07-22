@@ -1,0 +1,62 @@
+body{
+	font-family: Helvetica, sans-serif;
+}
+a:link, a:visited{
+
+	color: #ff6600;
+	text-decoration: none;
+}
+a:hover{
+
+	text-decoration: underline;
+}
+#wrap{
+
+	width: 920px;
+	margin: auto;
+	background: #e3e3e3;
+	padding: 10px 20px;
+	overflow: hidden;
+	/* top right down left 
+	1 parametro : mesmo valor para todos
+	2 parametros : o primeiro valor vai para top e dow e o segundo para right e left
+	4 parametros : valor individual para cada direção
+	*/
+} 
+.menuPrincipal{
+
+	list-style: none; /*tira bolinhas padrão do navegador*/
+	padding-left: 0;
+}
+header nav ul li{
+
+	display: inline-block;
+	margin-left: 10px;
+}
+header nav ul li a{
+
+	font-size: 18px;
+}
+header nav ul li a:hover{
+
+	text-decoration: underline;
+}
+#content{
+
+	float: left;
+	width: 620px
+}
+#sidebar{
+
+	width: 300px;
+	float: right;
+}
+#sidebar ul{
+
+	list-style: none;
+}
+	
+footer{
+
+	clear: both;
+}	
