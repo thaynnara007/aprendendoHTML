@@ -1,6 +1,7 @@
 body{
 
 	font-family: Helvetica, sans-serif;
+	background-color: grey;
 }
 
 a:link, a:visited{
@@ -52,18 +53,27 @@ header nav ul li a{
 #conteudo{
 
 	margin-top: 40px;
-	background:#404040;
 	float: left;
 	width: 610px;
 	padding: 10px;
+
+}
+.borda{
+
+	border-width: 3px;
+	border-style: solid;
+	border-color: #6A5ACD;
+	margin-bottom: 10px; 
 }
 .name{
 
 	float: right;
-	color: black;
+	color: #6A5ACD;
 	padding-right: 180px;
 	font-size: 17px;
 	margin-top: 10px;
+	font-weight: bolder;
+
 }
 .proLado{
 
@@ -75,17 +85,19 @@ header nav ul li a{
 .sectionImagens{
 
 	width: 200px;
-	margin-top: 30px;
 }
 #sidebar{
 
 	margin-top: 40px;
-	background: #404040;
 	float: right;
 	width: 280px;
 }
 
 aside ol li a{
 
-	color: black;
+	color: grey;
+}
+.cor{
+
+	color: white;
 }
