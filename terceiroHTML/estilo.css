@@ -1,0 +1,60 @@
+body{
+
+	font-family: Helvetica, sans-serif;
+}
+
+a:link, a:visited{
+
+	text-decoration: none;
+}
+a:hover{
+
+	text-decoration: underline;
+	font-size: 22px;
+}
+
+li{
+
+	display: inline-block;
+	padding: 20px;
+	font-size: 20px;
+}
+a{
+
+	color: red;
+}
+.pagina{
+
+	background-image: url(img/fundo.jpg);
+	background-size: 50%;
+}
+
+.logo{
+
+	width: 80px;
+	height: 80px;
+	padding: 10px;
+	padding-left:430px;
+
+}
+.titulo{
+
+	float: right;
+	font-size: 44px;
+	padding-right: 580px;
+	margin-left: 0px;
+	margin-bottom: 10px;
+
+}
+.menu{
+
+	list-style: none;
+	padding: 10px;
+	padding-left: 350px;
+	margin: 10px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: red;
+	background-color: black;
+
+}

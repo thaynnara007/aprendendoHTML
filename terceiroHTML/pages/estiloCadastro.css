@@ -1,0 +1,81 @@
+body{
+
+	font-family: Helvetica, sans-serif;
+}
+
+a:link, a:visited{
+
+	text-decoration: none;
+}
+a:hover{
+
+	text-decoration: underline;
+}
+a{
+
+	font-size: 20px;
+	border-style: solid;
+	background: black;
+	color: red;
+}
+input{
+
+	padding: 4px;
+}
+label{
+
+	padding: 8px;
+}
+textarea{
+
+	width: 300px;
+	height: 100px;
+}
+
+input[type=submit]{
+
+	background: #333333;
+	color: white;
+	cursor: pointer;
+	padding: 10px;
+	border-width: 0px;
+}
+
+input[type=submit]:hover{
+
+	background: #ff6600;
+}
+
+#wrap{
+
+
+	margin: auto;
+	padding: 10px 20px;
+	
+}
+
+.pagina{
+
+	background-image: url(../img/fundo5.jpg);
+	background-size: 100%;
+	bottom: 0; 
+   	color: black;
+    left: 0; 
+    overflow: auto;
+    padding: 3em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+	padding: 20px;
+	
+}
+
+.coluna{
+
+	display: block;
+}
+.espaco{
+
+	margin: 15px;
+}
