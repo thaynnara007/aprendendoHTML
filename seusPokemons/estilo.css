@@ -1,0 +1,41 @@
+.jumbotron{
+
+	width: 840px;
+	text-align: center;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	color:#DCDCDC;
+	background-color: #696969;
+}
+
+.table{
+	color: #FF6347;
+	margin-top: 40px;
+}
+.a{
+
+	color: #800000 ;
+}
+td{
+
+	background-color: #D3D3D3;
+	color: #800000 
+}
+th{
+
+	background-color: black;
+}
+a{
+
+	color: black;
+}
+
+a:link,a:visited{
+
+	text-decoration: none;
+}
+a:houver{
+
+	text-decoration: underline;
+}

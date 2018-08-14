@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="meusPokemons">
+<head>
+	<title>MeusPokemons</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+
+	<script src="lib/angular/angular.js"></script>
+	<script type="text/javascript">
+
+		var Pokemon = function(nome, tipo, level){
+
+			this.nome = nome;
+			this.tipo = tipo;
+			this.level = level;
+		}
+		
+		var lista = angular.module("meusPokemons",[]);
+		lista.controller("meusPokemonsCtrl", function($scope){
+
+			$scope.app = "Meus Pokemons";
+			$scope.pokemons = [
+
+				p1 = new Pokemon("Charmander", "Fogo", 5),
+				p2 = new Pokemon("Squirtle", "Agua", 5),
+				p3 = new Pokemon("Bulbassaur", "Planta", 5),
+				p4 = new Pokemon("Pikachu", "Eletrico", 10),
+				p5 = new Pokemon("Mew", "Psiquico", 100),
+				p6 = new Pokemon("Articuno", "Gelo", 80)
+
+			];
+		});
+
+	</script> 
+</head>
+<body ng-controller="meusPokemonsCtrl">
+	<div class="jumbotron">
+		<h3>{{app}}</h3>
+		<table class="table ">
+			<tr class="a">
+				<th>Nome</th>
+				<th>Tipo</th>
+				<th>Level</th>
+			</tr>
+			<tr ng-repeat="pokemon in pokemons">
+				<td ng-repeat="(key,value) in pokemon">
+					<a href="">{{value}}</a>
+				</td>
+			</tr>
+		</table>
+	</div> 
+</body>
+</html>
