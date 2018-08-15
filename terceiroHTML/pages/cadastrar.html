@@ -1,24 +1,34 @@
 <html>
-<head>
+<head ng-app="cadastro">
 	<title>Pokedex-Cadastrar</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="estiloCadastro.css">
-</head>
-<body class="pagina">
-	<div id="wrap">
-		<form action="" method="post">
+	<link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css">
 
+	<script src="../../lib/angular/angular.js"></script>
+	<script>
+		
+		var cadastroApp = angular.module("cadastro", []);
+		cadastroApp.controller("cadastroCrtl", function($scope){
+
+			$scope.pokemons = [];
+		});
+	</script>
+</head>
+<body class="pagina" ng-controller="cadastroCtrl">
+	<div id="wrap">
+		<form action="" method="post" id="form">
 			<div>
-				<label for="nome" class="coluna">Nome:</label>
-				<input type="text" name="nome" id="nome" placeholder="Digite o nome do pokemon">
-				<label for="forca" class="coluna">Força:</label>
-				<input type="text" name="forca" id="forca" placeholder="Força do pokemon">
-				<label for="velocidade" class="coluna">Velocidade:</label>
-				<input type="text" name="forca" id="velocidade" placeholder="velocidade do pokemon">
-				<label for="vida" class="coluna">Vida:</label>
-				<input type="text" name="forca" id="vida" placeholder="Vida do pokemon">
-				<label for="destreza" class="coluna">Destreza:</label>
-				<input type="text" name="forca" id="destreza" placeholder="Destreza do pokemon">
+				<label for="nome" class="coluna"><strong>Nome:</strong></label>
+				<input type="text" ng-model="pokemon.nome" class="form-control" id="nome" placeholder="Nome">
+				<label for="forca" class="coluna"><strong>Força:</strong></label>
+				<input type="text" ng-model="pokemon.forca" class="form-control" id="forca" placeholder="Força">
+				<label for="velocidade" class="coluna"><strong>Velocidade:</strong></label>
+				<input type="text" ng-model="pokemon.velocidade" class="form-control" id="velocidade" placeholder="velocidade">
+				<label for="vida" class="coluna"><strong>Vida:</strong></label>
+				<input type="text" ng-model="pokemon.vida" class="form-control" id="vida" placeholder="Vida">
+				<label for="destreza" class="coluna"><strong>Destreza:</label>
+				<input type="text" ng-model="pokemon.destreza" class="form-control" id="destreza" placeholder="Destreza">
 			</div>
 			<div class="espaco">
 				<label for="tipo" class="coluna">Tipo:</label>
@@ -50,11 +60,10 @@
 			</div>
 			<div>
 				<label for="descricao" class="coluna">Descrição:</label>
-				<textarea id="descricao" placeholder="Descrição sobre o pokemon"></textarea>
+				<textarea id="descricao" placeholder="Descrição"></textarea>
 			</div>
-			<input type="submit" value="Cadastrar" class="espaco">
-		</form>
+			<button class="btn btn-primary btn-block">Cadastrar</button>
 	</div>
-	<a href="../terceiroHTML.html" class="espaco">Voltar</a>
+	<button class="btn"><a href="../terceiroHTML.html" class="espaco">Voltar</a></button>
 </body>
 </html>

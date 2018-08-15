@@ -11,13 +11,7 @@ a:hover{
 
 	text-decoration: underline;
 }
-a{
 
-	font-size: 20px;
-	border-style: solid;
-	background: black;
-	color: red;
-}
 input{
 
 	padding: 4px;
@@ -46,11 +40,24 @@ input[type=submit]:hover{
 	background: #ff6600;
 }
 
+label{
+
+	text-shadow: 2px 2px black;
+}
+textarea{
+
+	width: 790px;
+	height: 100px;
+}
+
 #wrap{
 
 
 	margin: auto;
 	padding: 10px 20px;
+	margin-right: 210px;
+	margin-left: 210px;
+	color: white;
 	
 }
 
@@ -65,7 +72,7 @@ input[type=submit]:hover{
     padding: 3em;
     position: absolute;
     right: 0;
-    text-align: center;
+ /*   text-align: center;*/
     top: 0;
 	padding: 20px;
 	
@@ -77,5 +84,10 @@ input[type=submit]:hover{
 }
 .espaco{
 
-	margin: 15px;
+	/*margin: 15px;*/
+}
+
+.btn{
+
+	margin-top: 30px;
 }
