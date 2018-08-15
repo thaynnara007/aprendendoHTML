@@ -9,8 +9,9 @@ a:link, a:visited{
 }
 a:hover{
 
-	text-decoration: underline;
-	font-size: 22px;
+	text-decoration: none;
+	font-size: 21px;
+	color: orange;
 }
 
 li{
@@ -41,21 +42,23 @@ a{
 .titulo{
 
 	float: right;
-	font-size: 44px;
+	font-size: 50px;
 	padding-right: 580px;
 	margin-left: 0px;
 	margin-bottom: 10px;
+	text-shadow: 1px 1px red;
 
 }
-.menu{
+.jumbotron{
 
 	list-style: none;
 	padding: 10px;
 	padding-left: 350px;
 	margin: 10px;
+	margin-right: 40px;
+	margin-left: 40px;
 	border-style: solid;
-	border-width: 3px;
-	border-color: red;
-	background-color: black;
+	border-color: red; 
+	background-color: black; 
 
 }

@@ -72,7 +72,6 @@ textarea{
     padding: 3em;
     position: absolute;
     right: 0;
- /*   text-align: center;*/
     top: 0;
 	padding: 20px;
 	
@@ -81,10 +80,6 @@ textarea{
 .coluna{
 
 	display: block;
-}
-.espaco{
-
-	/*margin: 15px;*/
 }
 
 .btn{
