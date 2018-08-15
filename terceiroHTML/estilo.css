@@ -10,7 +10,6 @@ a:link, a:visited{
 a:hover{
 
 	text-decoration: none;
-	font-size: 21px;
 	color: orange;
 }
 
@@ -22,7 +21,7 @@ li{
 }
 a{
 
-	color: red;
+	color: white;
 }
 .pagina{
 
@@ -53,12 +52,17 @@ a{
 
 	list-style: none;
 	padding: 10px;
-	padding-left: 350px;
+	padding-left: 320px;
 	margin: 10px;
 	margin-right: 40px;
 	margin-left: 40px;
 	border-style: solid;
 	border-color: red; 
-	background-color: black; 
+	background-color: #151515; 
 
+}
+
+.btn{
+
+	background-color: #6E6E6E;
 }
