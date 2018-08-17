@@ -11,24 +11,28 @@
 		var cadastroApp = angular.module("cadastro", []);
 		cadastroApp.controller("cadastroCrtl", function($scope){
 
-			$scope.pokemons = [];
+			$scope.app = "Cadastro"
+			$scope.pokemons = [{nome:"cu",level:5}];
+
+		$scope.cadastrarPokemon = function(pokemon){
+
+			$scope.pokemons.push(angular.copy(pokemon));
+
+			delete $scope.pokemon
+
+			}
 		});
 	</script>
 </head>
 <body class="pagina" ng-controller="cadastroCtrl">
 	<div id="wrap">
-		<form action="" method="post" id="form">
 			<div>
-				<label for="nome" class="coluna"><strong>Nome:</strong></label>
-				<input type="text" ng-model="pokemon.nome" class="form-control" id="nome" placeholder="Nome">
-				<label for="forca" class="coluna"><strong>Força:</strong></label>
-				<input type="text" ng-model="pokemon.forca" class="form-control" id="forca" placeholder="Força">
-				<label for="velocidade" class="coluna"><strong>Velocidade:</strong></label>
-				<input type="text" ng-model="pokemon.velocidade" class="form-control" id="velocidade" placeholder="velocidade">
-				<label for="vida" class="coluna"><strong>Vida:</strong></label>
-				<input type="text" ng-model="pokemon.vida" class="form-control" id="vida" placeholder="Vida">
-				<label for="destreza" class="coluna"><strong>Destreza:</label>
-				<input type="text" ng-model="pokemon.destreza" class="form-control" id="destreza" placeholder="Destreza">
+				
+				<input type="text" ng-model="pokemon.nome" class="form-control espaco" id="nome" placeholder="Nome">
+				<input type="text" ng-model="pokemon.forca" class="form-control espaco" id="forca" placeholder="Força">
+				<input type="text" ng-model="pokemon.velocidade" class="form-control espaco" id="velocidade" placeholder="velocidade">
+				<input type="text" ng-model="pokemon.vida" class="form-control espaco" id="vida" placeholder="Vida">
+				<input type="text" ng-model="pokemon.destreza" class="form-control espaco" id="destreza" placeholder="Destreza">
 			</div>
 			<div class="espaco">
 				<label for="tipo" class="coluna">Tipo:</label>
@@ -56,14 +60,15 @@
 				<input type="radio" name="natureza">Gentil
 				<input type="radio" name="natureza">Timido
 				<input type="radio" name="natureza">Serio
-				<input type="radio" name="natureza">Inocente
+				<input type="radio" name="natureza">Inocente 
 			</div>
 			<div>
 				<label for="descricao" class="coluna">Descrição:</label>
-				<textarea id="descricao" placeholder="Descrição"></textarea>
-			</div>
-			<button class="btn btn-primary btn-block">Cadastrar</button>
+				<textarea id="descricao" placeholder="Descrição"></textarea> 
+			</div> 
+			<button class="btn btn-primary btn-block" ng-click="cadastrarPokemon(pokemon)">Adicionar</button>
+		 	<button class="btn btn-block"><a href="../index.html">Voltar</a></button>
 	</div>
-	<button class="btn"><a href="../terceiroHTML.html" class="espaco">Voltar</a></button>
+
 </body>
-</html>
+</html> 
