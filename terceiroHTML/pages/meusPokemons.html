@@ -4,16 +4,17 @@
 	<title>MeusPokemons</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="estiloLista.css">
+	<link rel="stylesheet" type="text/css" href="estiloMeusPokemons.css">
 
 	<script src="../../lib/angular/angular.js"></script>
 	<script type="text/javascript">
 
-		var Pokemon = function(nome, tipo, level){
+		var Pokemon = function(nome, tipo, level, cor){
 
 			this.nome = nome;
 			this.tipo = tipo;
 			this.level = level;
+			this.cor = cor;
 		}
 		
 		var lista = angular.module("meusPokemons",[]);
@@ -22,22 +23,28 @@
 			$scope.app = "Meus Pokemons";
 			$scope.meusPokemons = [
 
-				p1 = new Pokemon("Charmander", "Fogo", 5),
-				p2 = new Pokemon("Squirtle", "Agua", 5),
-				p3 = new Pokemon("Bulbassaur", "Planta", 5),
-				p4 = new Pokemon("Pikachu", "Eletrico", 10),
-				p5 = new Pokemon("Mew", "Psiquico", 100),
-				p6 = new Pokemon("Articuno", "Gelo", 80)
+				p1 = new Pokemon("Charmander", "Fogo", 5, "#FF8C00"),
+				p2 = new Pokemon("Squirtle", "Agua", 5, "#00BFFF"),
+				p3 = new Pokemon("Bulbassaur", "Planta", 5, "#228B22"),
+				p4 = new Pokemon("Pikachu", "Eletrico", 10, "#FFD700"),
+				p5 = new Pokemon("Mew", "Psiquico", 100, "#FFC0CB"),
+				p6 = new Pokemon("Articuno", "Gelo", 80, "#87CEFA")
 
 			];
 
 			$scope.naturezas=["Corajoso","Docil","Relaxado","Modesto","Quieto","Calmo","Gentil","Timido","Serio","Inocente"];
 
 			$scope.adicionarPokemon = function(pokemon){
+			
+				if($scope.meusPokemons.length < 6){
 
-				$scope.meusPokemons.push(angular.copy(pokemon));
+					$scope.meusPokemons.push(angular.copy(pokemon));
 
-				delete $scope.pokemon;
+					delete $scope.pokemon;
+				}else{
+
+					alert("Você ja tem 6 pokemons no time");
+				};
 			};
 
 			$scope.removePokemon = function(pokemons){
@@ -53,12 +60,10 @@
 
 			$scope.temPokemonSelecionado = function(pokemons){
 
-				var is = pokemons.some(function(pokemon){
+				return pokemons.some(function(pokemon){
 
 					return pokemon.selecionado;
 				});
-
-				return (!is);
 			}
 
 		});
@@ -75,6 +80,7 @@
 				<th>Tipo</th>
 				<th>Level</th>
 				<th>Natureza</th>
+				<th></th>
 			</tr>
 			<tr ng-class="{'selecionado negrito': pokemon.selecionado}" ng-repeat="pokemon in meusPokemons">
 				
@@ -83,10 +89,12 @@
 				<td><a href="">{{pokemon.tipo}}</a></td>
 				<td><a href="">{{pokemon.level}}</a></td>
 				<td><a href="">{{pokemon.natureza}}</a></td>
+				<td><div class="image" ng-style="{'background-color': pokemon.cor}"></div></td>
+
 			</tr>
 		</table>
 		<br>
-		<button class="btn btn-danger btn-block" ng-click="removePokemon(meusPokemons)" ng-disabled="temPokemonSelecionado(meusPokemons)">Remover</button>
+		<button class="btn btn-danger btn-block" ng-click="removePokemon(meusPokemons)" ng-disabled="!temPokemonSelecionado(meusPokemons)">Remover</button>
 		<hr>
 		<div>
 			<h4>Adicionar pokemon a equipe</h4>
@@ -94,6 +102,7 @@
 			<input type="text" ng-model="pokemon.nome" placeholder="Nome" class="form-control">
 			<input type="text" ng-model="pokemon.tipo" placeholder="Tipo" class="form-control">
 			<input type="text" ng-model="pokemon.level" placeholder="Level" class="form-control">
+			<input type="text" ng-model="pokemon.cor" placeholder="Cor" class="form-control">
 			<select ng-model="pokemon.natureza" ng-options="natureza for natureza in naturezas" class="form-control">
 				<option value="">Selecione a natureza</option>
 			</select>
