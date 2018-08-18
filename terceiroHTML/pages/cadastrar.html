@@ -1,30 +1,38 @@
-<html>
-<head ng-app="cadastro">
+<!DOCTYPE html>
+<html ng-app="cadastro">
+<head>
 	<title>Pokedex-Cadastrar</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="estiloCadastro.css">
+	<link rel="stylesheet" type="text/css" href="estiloCadastro.css"> 
 	<link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css">
 
 	<script src="../../lib/angular/angular.js"></script>
 	<script>
 		
-		var cadastroApp = angular.module("cadastro", []);
-		cadastroApp.controller("cadastroCrtl", function($scope){
+		var app = angular.module("cadastro", []);
+		app.controller("cadastroCtrl", function($scope){
 
-			$scope.app = "Cadastro"
-			$scope.pokemons = [{nome:"cu",level:5}];
+			$scope.app = "Cadastro";
+			$scope.pokemons=[
 
-		$scope.cadastrarPokemon = function(pokemon){
+				{nome:"pikachu", level:10},
+				{nome:"Mew", level:100}
+			];
 
-			$scope.pokemons.push(angular.copy(pokemon));
+			$scope.naturezas=["Corajoso","Docil","Relaxado","Modesto","Quieto","Calmo","Gentil","Timido","Serio","Inocente"];
 
-			delete $scope.pokemon
+			$scope.cadastrarPokemon = function(pokemon){
 
+				$scope.pokemons.push(angular.copy(pokemon));
+
+				delete pokemon;
 			}
-		});
+
+		})
+
 	</script>
 </head>
-<body class="pagina" ng-controller="cadastroCtrl">
+<body ng-controller="cadastroCtrl" class="pagina">
 	<div id="wrap">
 			<div>
 				
@@ -48,27 +56,19 @@
 				<input type="checkbox" name="pedra">Pedra
 				<input type="checkbox" name="voador">Voador
 			</div>
+
 			<div class="espaco">
-				<label for="natureza" class="coluna">Selecione a natureza:</label>
-				<input type="radio" name="natureza" id="natureza">Solitario
-				<input type="radio" name="natureza">Corajoso
-				<input type="radio" name="natureza">Docil
-				<input type="radio" name="natureza">Relaxado
-				<input type="radio" name="natureza">Modesto
-				<input type="radio" name="natureza">Quieto
-				<input type="radio" name="natureza">Calmo
-				<input type="radio" name="natureza">Gentil
-				<input type="radio" name="natureza">Timido
-				<input type="radio" name="natureza">Serio
-				<input type="radio" name="natureza">Inocente 
+
+				<select class="form-control" ng-model="pokemon.natureza" ng-options="natureza for natureza in naturezas">
+					<option value="">Selecione uma natureza</option>
+				</select>
 			</div>
 			<div>
 				<label for="descricao" class="coluna">Descrição:</label>
-				<textarea id="descricao" placeholder="Descrição"></textarea> 
+				<textarea class="form-control" id="descricao" placeholder="Descrição"></textarea> 
 			</div> 
 			<button class="btn btn-primary btn-block" ng-click="cadastrarPokemon(pokemon)">Adicionar</button>
 		 	<button class="btn btn-block"><a href="../index.html">Voltar</a></button>
 	</div>
-
 </body>
 </html> 
