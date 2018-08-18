@@ -73,7 +73,7 @@
 <body ng-controller="meusPokemonsCtrl">
 	<div class="jumbotron">
 		<h3>{{app}}</h3>
-		<table class="table cor font-color">
+		<table ng-show="meusPokemons.length > 0" class="table cor font-color">
 			<tr class="a">
 				<th>Remove</th>
 				<th>Nome</th>
