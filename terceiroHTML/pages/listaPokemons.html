@@ -4,7 +4,7 @@
 	<title>MeusPokemons</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="estilo.css">
+	<link rel="stylesheet" type="text/css" href="estiloLista.css">
 
 	<script src="../../lib/angular/angular.js"></script>
 	<script type="text/javascript">
@@ -20,7 +20,7 @@
 		lista.controller("meusPokemonsCtrl", function($scope){
 
 			$scope.app = "Meus Pokemons";
-			$scope.pokemons = [
+			$scope.meusPokemons = [
 
 				p1 = new Pokemon("Charmander", "Fogo", 5),
 				p2 = new Pokemon("Squirtle", "Agua", 5),
@@ -35,10 +35,32 @@
 
 			$scope.adicionarPokemon = function(pokemon){
 
-				$scope.pokemons.push(angular.copy(pokemon));
+				$scope.meusPokemons.push(angular.copy(pokemon));
 
 				delete $scope.pokemon;
+			};
+
+			$scope.removePokemon = function(pokemons){
+
+				$scope.meusPokemons = pokemons.filter(function(pokemon){
+
+					if (!pokemon.selecionado) {
+
+						return pokemon;
+					}
+				});
+			};
+
+			$scope.temPokemonSelecionado = function(pokemons){
+
+				var is = pokemons.some(function(pokemon){
+
+					return pokemon.selecionado;
+				});
+
+				return (!is);
 			}
+
 		});
 
 	</script> 
@@ -46,21 +68,25 @@
 <body ng-controller="meusPokemonsCtrl">
 	<div class="jumbotron">
 		<h3>{{app}}</h3>
-		<table class="table ">
+		<table class="table cor font-color">
 			<tr class="a">
+				<th>Remove</th>
 				<th>Nome</th>
 				<th>Tipo</th>
 				<th>Level</th>
 				<th>Natureza</th>
 			</tr>
-			<tr ng-repeat="pokemon in pokemons">
+			<tr ng-class="{'selecionado negrito': pokemon.selecionado}" ng-repeat="pokemon in meusPokemons">
 				
+				<td><input type="checkbox" ng-model="pokemon.selecionado"></td>
 				<td><a href="">{{pokemon.nome}}</a></td>
 				<td><a href="">{{pokemon.tipo}}</a></td>
 				<td><a href="">{{pokemon.level}}</a></td>
 				<td><a href="">{{pokemon.natureza}}</a></td>
 			</tr>
 		</table>
+		<br>
+		<button class="btn btn-danger btn-block" ng-click="removePokemon(meusPokemons)" ng-disabled="temPokemonSelecionado(meusPokemons)">Remover</button>
 		<hr>
 		<div>
 			<h4>Adicionar pokemon a equipe</h4>

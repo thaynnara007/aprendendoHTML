@@ -18,20 +18,33 @@
 	margin-bottom: 10px;
 }
 
+.selecionado{
+
+	background-color: #B22222;
+}
+
 .a{
 
 	color: #800000 ;
 }
+
+.cor{
+
+	background-color: #D3D3D3;
+	color: #800000 
+}
+
+.negrito{
+
+	font-weight: bold;
+}
+
 body{
 
 	background-color: #B0C4DE;
 }
 
-td{
 
-	background-color: #D3D3D3;
-	color: #800000 
-}
 th{
 
 	background-color: black;
