@@ -30,6 +30,15 @@
 				p6 = new Pokemon("Articuno", "Gelo", 80)
 
 			];
+
+			$scope.naturezas=["Corajoso","Docil","Relaxado","Modesto","Quieto","Calmo","Gentil","Timido","Serio","Inocente"];
+
+			$scope.adicionarPokemon = function(pokemon){
+
+				$scope.pokemons.push(angular.copy(pokemon));
+
+				delete $scope.pokemon;
+			}
 		});
 
 	</script> 
@@ -42,14 +51,30 @@
 				<th>Nome</th>
 				<th>Tipo</th>
 				<th>Level</th>
+				<th>Natureza</th>
 			</tr>
 			<tr ng-repeat="pokemon in pokemons">
-				<td ng-repeat="(key,value) in pokemon">
-					<a href="">{{value}}</a>
-				</td>
+				
+				<td><a href="">{{pokemon.nome}}</a></td>
+				<td><a href="">{{pokemon.tipo}}</a></td>
+				<td><a href="">{{pokemon.level}}</a></td>
+				<td><a href="">{{pokemon.natureza}}</a></td>
 			</tr>
 		</table>
-		<button class="btn"><a href="../index.html">Voltar</a></button>
+		<hr>
+		<div>
+			<h4>Adicionar pokemon a equipe</h4>
+			<br>
+			<input type="text" ng-model="pokemon.nome" placeholder="Nome" class="form-control">
+			<input type="text" ng-model="pokemon.tipo" placeholder="Tipo" class="form-control">
+			<input type="text" ng-model="pokemon.level" placeholder="Level" class="form-control">
+			<select ng-model="pokemon.natureza" ng-options="natureza for natureza in naturezas" class="form-control">
+				<option value="">Selecione a natureza</option>
+			</select>
+			<button class="btn btn-primary btn-block" ng-disabled="(!pokemon.nome || !pokemon.tipo)" ng-click="adicionarPokemon(pokemon)">Adicionar</button>
+		</div>
+		<br>
+		<button class="btn btn-block"><a href="../index.html">Voltar</a></button>
 	</div> 
 </body>
 </html>

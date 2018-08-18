@@ -25,7 +25,7 @@
 
 				$scope.pokemons.push(angular.copy(pokemon));
 
-				delete pokemon;
+				delete $scope.pokemon;
 			}
 
 		})
@@ -36,11 +36,12 @@
 	<div id="wrap">
 			<div>
 				
-				<input type="text" ng-model="pokemon.nome" class="form-control espaco" id="nome" placeholder="Nome">
-				<input type="text" ng-model="pokemon.forca" class="form-control espaco" id="forca" placeholder="Força">
-				<input type="text" ng-model="pokemon.velocidade" class="form-control espaco" id="velocidade" placeholder="velocidade">
-				<input type="text" ng-model="pokemon.vida" class="form-control espaco" id="vida" placeholder="Vida">
-				<input type="text" ng-model="pokemon.destreza" class="form-control espaco" id="destreza" placeholder="Destreza">
+				<input type="text" ng-model="pokemon.nome" class="form-control espaco" placeholder="Nome">
+				<input type="text" ng-model="pokemon.level" class="form-control espaco" placeholder="Level">
+				<input type="text" ng-model="pokemon.forca" class="form-control espaco" placeholder="Força">
+				<input type="text" ng-model="pokemon.velocidade" class="form-control espaco" placeholder="velocidade">
+				<input type="text" ng-model="pokemon.vida" class="form-control espaco" placeholder="Vida">
+				<input type="text" ng-model="pokemon.destreza" class="form-control espaco" placeholder="Destreza">
 			</div>
 			<div class="espaco">
 				<label for="tipo" class="coluna">Tipo:</label>
@@ -56,10 +57,10 @@
 				<input type="checkbox" name="pedra">Pedra
 				<input type="checkbox" name="voador">Voador
 			</div>
-
+			<br>
 			<div class="espaco">
 
-				<select class="form-control" ng-model="pokemon.natureza" ng-options="natureza for natureza in naturezas">
+				<select class="form-control espaco" ng-model="pokemon.natureza" ng-options="natureza for natureza in naturezas">
 					<option value="">Selecione uma natureza</option>
 				</select>
 			</div>
@@ -67,7 +68,8 @@
 				<label for="descricao" class="coluna">Descrição:</label>
 				<textarea class="form-control" id="descricao" placeholder="Descrição"></textarea> 
 			</div> 
-			<button class="btn btn-primary btn-block" ng-click="cadastrarPokemon(pokemon)">Adicionar</button>
+
+			<button class="btn btn-primary btn-block" ng-click="cadastrarPokemon(pokemon)" ng-disabled="!pokemon.nome || !pokemon.level">Cadastrar</button>
 		 	<button class="btn btn-block"><a href="../index.html">Voltar</a></button>
 	</div>
 </body>
