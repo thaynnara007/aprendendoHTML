@@ -94,19 +94,36 @@
 			</tr>
 		</table>
 		<br>
-		<button class="btn btn-danger btn-block" ng-click="removePokemon(meusPokemons)" ng-disabled="!temPokemonSelecionado(meusPokemons)">Remover</button>
+		<button class="btn btn-danger btn-block" ng-click="removePokemon(meusPokemons)" ng-disabled="!temPokemonSelecionado(meusPokemons)" ng-hide="meusPokemons.length <= 0">Remover</button>
 		<hr>
 		<div>
 			<h4>Adicionar pokemon a equipe</h4>
 			<br>
-			<input type="text" ng-model="pokemon.nome" placeholder="Nome" class="form-control">
-			<input type="text" ng-model="pokemon.tipo" placeholder="Tipo" class="form-control">
-			<input type="text" ng-model="pokemon.level" placeholder="Level" class="form-control">
-			<input type="text" ng-model="pokemon.cor" placeholder="Cor" class="form-control">
-			<select ng-model="pokemon.natureza" ng-options="natureza for natureza in naturezas" class="form-control">
-				<option value="">Selecione a natureza</option>
-			</select>
-			<button class="btn btn-primary btn-block" ng-disabled="(!pokemon.nome || !pokemon.tipo)" ng-click="adicionarPokemon(pokemon)">Adicionar</button>
+
+			<div ng-show="meusPokemonsForm.nome.$invalid" class="alert alert-danger">
+				Por favor, preencha nome.
+			</div>
+			<div ng-show="meusPokemonsForm.tipo.$invalid" class="alert alert-danger">
+				Por favor, preencha nome.
+			</div>
+			<div ng-show="meusPokemonsForm.level.$invalid" class="alert alert-danger">
+				Por favor, preencha nome.
+			</div>
+
+			<form name="meusPokemonsForm">
+				<input type="text" ng-model="pokemon.nome" placeholder="Nome" class="form-control" ng-required="true" name="nome">
+				<input type="text" ng-model="pokemon.tipo" placeholder="Tipo" class="form-control" ng-required="true" name="tipo">
+				<input type="text" ng-model="pokemon.level" placeholder="Level" class="form-control" ng-required="true" name="level">
+				<input type="text" ng-model="pokemon.cor" placeholder="Cor" class="form-control">
+				<select ng-model="pokemon.natureza" ng-options="natureza for natureza in naturezas" class="form-control">
+					<option value="">Selecione a natureza</option>
+				</select>
+			</form>
+
+			<div class="alert">
+				Por favor, preencha nome, level e tipo
+			</div>
+			<button class="btn btn-primary btn-block" ng-disabled="meusPokemonsForm.$invalid" ng-click="adicionarPokemon(pokemon)">Adicionar</button>
 		</div>
 		<br>
 		<button class="btn btn-block"><a href="../index.html">Voltar</a></button>
