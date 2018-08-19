@@ -34,10 +34,21 @@
 </head>
 <body ng-controller="cadastroCtrl" class="pagina">
 	<div id="wrap">
+
+		<div class="alert alert-danger" ng-show="cadastroForm.nome.$invalid && cadastroForm.nome.$dirty">
+			
+			Por favor, preencha nome.
+		</div>
+		<div class="alert alert-danger" ng-show="cadastroForm.level.$invalid && cadastroForm.level.$dirty">
+			
+			Por favor, preencha Level.
+		</div>
+
+		<form name="cadastroForm">
 			<div>
 				
-				<input type="text" ng-model="pokemon.nome" class="form-control espaco" placeholder="Nome">
-				<input type="text" ng-model="pokemon.level" class="form-control espaco" placeholder="Level">
+				<input type="text" ng-model="pokemon.nome" class="form-control espaco" placeholder="Nome" ng-required="true" name="nome">
+				<input type="text" ng-model="pokemon.level" class="form-control espaco" placeholder="Level" ng-required="true" name="level">
 				<input type="text" ng-model="pokemon.forca" class="form-control espaco" placeholder="Força">
 				<input type="text" ng-model="pokemon.velocidade" class="form-control espaco" placeholder="velocidade">
 				<input type="text" ng-model="pokemon.vida" class="form-control espaco" placeholder="Vida">
@@ -67,9 +78,10 @@
 			<div>
 				<label for="descricao" class="coluna">Descrição:</label>
 				<textarea class="form-control" id="descricao" placeholder="Descrição"></textarea> 
-			</div> 
+			</div>
+		</form> 
 
-			<button class="btn btn-primary btn-block" ng-click="cadastrarPokemon(pokemon)" ng-disabled="!pokemon.nome || !pokemon.level">Cadastrar</button>
+			<button class="btn btn-primary btn-block" ng-click="cadastrarPokemon(pokemon)" ng-disabled="cadastroForm.$invalid">Cadastrar</button>
 		 	<button class="btn btn-block"><a href="../index.html">Voltar</a></button>
 	</div>
 </body>
