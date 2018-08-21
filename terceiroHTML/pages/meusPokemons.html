@@ -41,6 +41,9 @@
 					$scope.meusPokemons.push(angular.copy(pokemon));
 
 					delete $scope.pokemon;
+
+					$scope.meusPokemonsForm.$setPristine();
+
 				}else{
 
 					alert("Você ja tem 6 pokemons no time");
@@ -100,20 +103,23 @@
 			<h4>Adicionar pokemon a equipe</h4>
 			<br>
 
-			<div ng-show="meusPokemonsForm.nome.$invalid && meusPokemonsForm.nome.$dirty" class="alert alert-danger">
+			<div ng-show="meusPokemonsForm.nome.$error.required && meusPokemonsForm.nome.$dirty" class="alert alert-danger">
 				Por favor, preencha nome.
 			</div>
-			<div ng-show="meusPokemonsForm.tipo.$invalid && meusPokemonsForm.tipo.$dirty" class="alert alert-danger">
-				Por favor, preencha nome.
+			<div ng-show="meusPokemonsForm.tipo.$error.required && meusPokemonsForm.tipo.$dirty" class="alert alert-danger">
+				Por favor, preencha tipo.
 			</div>
-			<div ng-show="meusPokemonsForm.level.$invalid && meusPokemonsForm.level.$dirty" class="alert alert-danger">
-				Por favor, preencha nome.
+			<div ng-show="meusPokemonsForm.level.$error.required && meusPokemonsForm.level.$dirty" class="alert alert-danger">
+				Por favor, preencha level.
+			</div>
+			<div ng-show="meusPokemonsForm.level.$error.pattern" class="alert alert-danger">
+				O level não esta de acordo.
 			</div>
 
 			<form name="meusPokemonsForm">
 				<input type="text" ng-model="pokemon.nome" placeholder="Nome" class="form-control" ng-required="true" name="nome">
 				<input type="text" ng-model="pokemon.tipo" placeholder="Tipo" class="form-control" ng-required="true" name="tipo">
-				<input type="text" ng-model="pokemon.level" placeholder="Level" class="form-control" ng-required="true" name="level">
+				<input type="text" ng-model="pokemon.level" placeholder="Level" class="form-control" ng-required="true" name="level" ng-pattern="/^[1-9]{1}\d{0,2}$/">
 				<input type="text" ng-model="pokemon.cor" placeholder="Cor" class="form-control">
 				<select ng-model="pokemon.natureza" ng-options="natureza for natureza in naturezas" class="form-control">
 					<option value="">Selecione a natureza</option>
