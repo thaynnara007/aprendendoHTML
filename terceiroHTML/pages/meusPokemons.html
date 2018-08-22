@@ -38,6 +38,7 @@
 			
 				if($scope.meusPokemons.length < 6){
 
+					pokemon.data = new Date();
 					$scope.meusPokemons.push(angular.copy(pokemon));
 
 					delete $scope.pokemon;
@@ -69,6 +70,13 @@
 				});
 			}
 
+			$scope.ordenaPor = function(campo){
+
+				$scope.criterioOrdenacao = campo;
+
+				$scope.direcao = !$scope.direcao;
+			}
+
 		});
 
 	</script> 
@@ -76,22 +84,26 @@
 <body ng-controller="meusPokemonsCtrl">
 	<div class="jumbotron">
 		<h3>{{app}}</h3>
+		<br>
+		<input type="text" class="form-control" ng-model="busca" placeholder="Busca">
 		<table ng-show="meusPokemons.length > 0" class="table cor font-color">
 			<tr class="a">
 				<th>Remove</th>
-				<th>Nome</th>
-				<th>Tipo</th>
-				<th>Level</th>
-				<th>Natureza</th>
-				<th></th>
+				<th><a href="" ng-click="ordenaPor('nome')" class="a">Nome</a></th>
+				<th><a href="" ng-click="ordenaPor('tipo')" class="a">Tipo</a></th>
+				<th><a href="" ng-click="ordenaPor('level')" class="a">Level</a></th>
+				<th><a href="" ng-click="ordenaPor('natureza')" class="a">Natureza</a></th>
+				<th><a href="" ng-click="ordenaPor('data')" class="a">Data</a></th>
+				<th><a href="" ng-click="ordenaPor('cor')"class="a">Cor</a></th>
 			</tr>
-			<tr ng-class="{'selecionado negrito': pokemon.selecionado}" ng-repeat="pokemon in meusPokemons">
+			<tr ng-class="{'selecionado negrito': pokemon.selecionado}" ng-repeat="pokemon in meusPokemons | filter: busca | orderBy: criterioOrdenacao: direcao">
 				
 				<td><input type="checkbox" ng-model="pokemon.selecionado"></td>
 				<td><a href="">{{pokemon.nome}}</a></td>
 				<td><a href="">{{pokemon.tipo}}</a></td>
 				<td><a href="">{{pokemon.level}}</a></td>
 				<td><a href="">{{pokemon.natureza}}</a></td>
+				<td><a href="">{{pokemon.data | date:"dd/MM/yyyy"}}</a></td>
 				<td><div class="image" ng-style="{'background-color': pokemon.cor}"></div></td>
 
 			</tr>

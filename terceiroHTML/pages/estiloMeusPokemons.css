@@ -55,9 +55,13 @@ th{
 
 	background-color: black;
 }
-a{
+td a{
 
 	color: black;
+}
+th a{
+
+
 }
 
 a:link,a:visited{
